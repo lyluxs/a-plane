@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dewqc2ioe3n8k"]
+
+[ext_resource type="Script" uid="uid://dmukdlff5vny6" path="res://obstacle.gd" id="1_vcivv"]
+[ext_resource type="Texture2D" uid="uid://d15vo6ia03vco" path="res://kenney_tappy-plane/PNG/rock.png" id="2_tyhon"]
+[ext_resource type="Texture2D" uid="uid://cm44klp1rr6t6" path="res://kenney_tappy-plane/PNG/rockDown.png" id="3_fvdov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfeux"]
+size = Vector2(9, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfucu"]
+size = Vector2(122, 632.5)
+
+[node name="obstacle" type="Node2D" unique_id=1217633924]
+script = ExtResource("1_vcivv")
+
+[node name="Top" type="Node2D" parent="." unique_id=204118540 groups=["pinchos"]]
+position = Vector2(0, -250)
+
+[node name="SpikeTop" type="StaticBody2D" parent="Top" unique_id=1818703934 groups=["pinchos"]]
+
+[node name="spike top" type="Sprite2D" parent="Top/SpikeTop" unique_id=1418609629]
+position = Vector2(219, 118)
+texture = ExtResource("3_fvdov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top/SpikeTop" unique_id=133656663]
+position = Vector2(231, 114)
+shape = SubResource("RectangleShape2D_xfeux")
+
+[node name="SpikeTop2" type="StaticBody2D" parent="Top" unique_id=2103873468 groups=["pinchos"]]
+
+[node name="spike top" type="Sprite2D" parent="Top/SpikeTop2" unique_id=576027850 groups=["pinchos"]]
+position = Vector2(301, 76.75)
+scale = Vector2(0.5185183, 0.6464435)
+texture = ExtResource("3_fvdov")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Top/SpikeTop2" unique_id=49334035 groups=["pinchos"]]
+position = Vector2(305, 34)
+shape = SubResource("RectangleShape2D_xfeux")
+
+[node name="Bottom" type="Node2D" parent="." unique_id=659599757 groups=["pinchos"]]
+position = Vector2(0, 250)
+
+[node name="SpikeBottom" type="StaticBody2D" parent="Bottom" unique_id=1434433746 groups=["pinchos"]]
+
+[node name="spike bottom" type="Sprite2D" parent="Bottom/SpikeBottom" unique_id=1605215270]
+position = Vector2(217, 529)
+texture = ExtResource("2_tyhon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/SpikeBottom" unique_id=1868643194]
+position = Vector2(328, 597)
+shape = SubResource("RectangleShape2D_xfeux")
+
+[node name="SpikeBottom2" type="StaticBody2D" parent="Bottom" unique_id=1520391772 groups=["pinchos"]]
+
+[node name="spike bottom" type="Sprite2D" parent="Bottom/SpikeBottom2" unique_id=2126169565]
+position = Vector2(317, 565)
+scale = Vector2(0.8888889, 0.70920503)
+texture = ExtResource("2_tyhon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom/SpikeBottom2" unique_id=1191318588]
+position = Vector2(227, 530)
+shape = SubResource("RectangleShape2D_xfeux")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1734457337]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=79116257]
+position = Vector2(266, 325.75)
+shape = SubResource("RectangleShape2D_tfucu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

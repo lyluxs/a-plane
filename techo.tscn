@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://g7gpt7h04enb"]
+
+[ext_resource type="Script" uid="uid://s8to6djef5s4" path="res://techo.gd" id="1_1fb2r"]
+[ext_resource type="Texture2D" uid="uid://cyl88r4l7j77x" path="res://kenney_tappy-plane/PNG/groundDirt.png" id="2_if22l"]
+
+[node name="Parallax2D" type="Parallax2D" unique_id=237691817]
+repeat_size = Vector2(808, 0)
+repeat_times = 1000
+script = ExtResource("1_1fb2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=197650033]
+position = Vector2(314, 14)
+rotation = 3.1415927
+scale = Vector2(1, 0.8356648)
+texture = ExtResource("2_if22l")

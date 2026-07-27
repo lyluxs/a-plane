@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://caqwqi75r5aa"]
+
+[ext_resource type="Texture2D" uid="uid://c45nopx3qrpc3" path="res://kenney_tappy-plane/PNG/groundSnow.png" id="1_ho27h"]
+[ext_resource type="Script" uid="uid://0glgv6oytn6m" path="res://piso.gd" id="1_kijln"]
+
+[node name="Parallax2D" type="Parallax2D" unique_id=237691817]
+repeat_size = Vector2(808, 0)
+repeat_times = 1000
+script = ExtResource("1_kijln")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=197650033]
+position = Vector2(402, 613)
+texture = ExtResource("1_ho27h")

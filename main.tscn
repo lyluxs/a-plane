@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://btnsi3rbf20to"]
+
+[ext_resource type="Script" uid="uid://cm2dgdd77vaxa" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cc21ufb5g8wjk" path="res://parallax_background.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://caqwqi75r5aa" path="res://piso.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://bst7xri7bt1ky" path="res://character_body_2d.gd" id="4_272bh"]
+[ext_resource type="Texture2D" uid="uid://bg0oowg1umsfv" path="res://kenney_tappy-plane/PNG/Planes/planeBlue1.png" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://c7wn5t6fgdnx7" path="res://kenney_tappy-plane/PNG/Planes/planeBlue2.png" id="6_kek77"]
+[ext_resource type="Texture2D" uid="uid://bkirien1sf4g5" path="res://kenney_tappy-plane/PNG/Planes/planeBlue3.png" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://corkwingxd80m" path="res://game_over.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://d0sgdyhcyjxr4" path="res://score.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://g7gpt7h04enb" path="res://techo.tscn" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://cydvjy6awctt5" path="res://avatars-V2Fs8UXIB2QNFfo2-l2kO3w-t240x240.jpg" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://dg53nt0n40hht" path="res://evento_raro.gd" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://d07j1wop4esv4" path="res://pausa.png" id="13_ycdy4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efxa6"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5vw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kek77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4c57u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kek77")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dg77c"]
+size = Vector2(90, 70)
+
+[node name="Main" type="Node2D" unique_id=1838668218]
+script = ExtResource("1_h2yge")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2001706835]
+script = ExtResource("4_272bh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=807952535]
+position = Vector2(54, 301)
+sprite_frames = SubResource("SpriteFrames_efxa6")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.105530635
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2039124192]
+position = Vector2(53, 302)
+shape = SubResource("RectangleShape2D_dg77c")
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=1914933631]
+
+[node name="Timer" type="Timer" parent="." unique_id=958515440]
+wait_time = 2.0
+autostart = true
+
+[node name="Background" parent="." unique_id=61743494 instance=ExtResource("3_h2yge")]
+
+[node name="top land" parent="." unique_id=237691817 instance=ExtResource("4_1bvp3")]
+
+[node name="Game over" parent="." unique_id=1169184729 instance=ExtResource("8_5vw27")]
+
+[node name="CanvasLayer" parent="." unique_id=33753349 instance=ExtResource("9_kek77")]
+
+[node name="bottom land" parent="." unique_id=699856158 instance=ExtResource("10_4c57u")]
+scroll_offset = Vector2(14, 12)
+
+[node name="EventoRaro" type="Sprite2D" parent="." unique_id=1018771145]
+visible = false
+position = Vector2(534.99994, 85.999985)
+scale = Vector2(0.23333333, 0.23333333)
+texture = ExtResource("11_efxa6")
+script = ExtResource("12_dg77c")
+
+[node name="Button" type="Button" parent="." unique_id=2119790398]
+offset_left = 7.0
+offset_top = 98.99999
+offset_right = 527.0
+offset_bottom = 619.0
+scale = Vector2(0.07693165, 0.073735066)
+icon = ExtResource("13_ycdy4")
+flat = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

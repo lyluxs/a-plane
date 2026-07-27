@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cc21ufb5g8wjk"]
+
+[ext_resource type="Script" uid="uid://bnbc8x7vy3osr" path="res://parallax_background.gd" id="1_si5dj"]
+[ext_resource type="Texture2D" uid="uid://djge4d0gk055v" path="res://kenney_tappy-plane/PNG/background.png" id="2_6h8ff"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" unique_id=61743494]
+script = ExtResource("1_si5dj")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=2061168408]
+
+[node name="background" type="Sprite2D" parent="." unique_id=856669504]
+position = Vector2(574, 331.5)
+scale = Vector2(1.4349998, 1.3270833)
+texture = ExtResource("2_6h8ff")

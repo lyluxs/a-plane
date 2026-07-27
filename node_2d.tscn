@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ckh0nm6qij5ik"]
+
+[ext_resource type="Script" uid="uid://bst7xri7bt1ky" path="res://character_body_2d.gd" id="2_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bg0oowg1umsfv" path="res://kenney_tappy-plane/PNG/Planes/planeBlue1.png" id="3_d21ai"]
+[ext_resource type="Texture2D" uid="uid://c7wn5t6fgdnx7" path="res://kenney_tappy-plane/PNG/Planes/planeBlue2.png" id="4_rj586"]
+[ext_resource type="Texture2D" uid="uid://bkirien1sf4g5" path="res://kenney_tappy-plane/PNG/Planes/planeBlue3.png" id="5_4d7sh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfucu"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d21ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rj586")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4d7sh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rj586")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47mtk"]
+size = Vector2(90, 70)
+
+[node name="Node2D" type="Node2D" unique_id=2873294]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1549929414]
+script = ExtResource("2_kdubu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1964773017]
+position = Vector2(54, 301)
+sprite_frames = SubResource("SpriteFrames_tfucu")
+animation = &"new_animation"
+frame_progress = 0.5814946
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1324214402]
+position = Vector2(53, 302)
+shape = SubResource("RectangleShape2D_47mtk")

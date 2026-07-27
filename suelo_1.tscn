@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bkme5nu4fikh3"]
+
+[ext_resource type="Texture2D" uid="uid://c45nopx3qrpc3" path="res://kenney_tappy-plane/PNG/groundSnow.png" id="1_behic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyit4"]
+size = Vector2(1151, 58)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_behic"]
+load_path = "res://.godot/imported/groundSnow.png-ab9bddada80874c25838adb75d2ceb12.ctex"
+
+[node name="Suelo" type="StaticBody2D" unique_id=743083017]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1735438897]
+position = Vector2(573.5, 624)
+shape = SubResource("RectangleShape2D_kyit4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1084358644]
+position = Vector2(0, 581)
+texture = SubResource("CompressedTexture2D_behic")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1072899991]
+position = Vector2(801, 579)
+scale = Vector2(1, 1.025)
+texture = ExtResource("1_behic")
+centered = false
